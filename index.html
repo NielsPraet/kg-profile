@@ -7,60 +7,34 @@
   </head>
 
   <body>
-    <script type="application/ld+json">
-      {
-        "@context": {
-          "@base": "https://nielspraet.github.io/kg-profile/",
-          "schema": "https://schema.org/",
-          "foaf": "http://xmlns.com/foaf/0.1/",
-          "knows": {
-            "@id": "http://xmlns.com/foaf/0.1/knows",
-            "@type": "@id"
-          },
-          "member": {
-            "@id": "http://xmlns.com/foaf/0.1/member",
-            "@type": "@id"
-          }
-        },
-        "@id": "#me",
-        "@type": "foaf:Person",
-        "foaf:name": "Niels Praet",
-        "foaf:gender": {
-          "@value": "male",
-          "@language": "en"
-        },
-        "foaf:birthday": "12-04",
-        "schema:email": "niels.praet@ugent.be",
-        "schema:knowsLanguage": [
-          {
-            "@value": "Dutch",
-            "@language": "en"
-          },
-          {
-            "@value": "English",
-            "@language": "en"
-          },
-          {
-            "@value": "French",
-            "@language": "en"
-          }
-        ],
-        "schema:affiliation": {
-          "schema:legalName": {
-            "@value": "Ghent University",
-            "@language": "en"
-          },
-          "schema:location": {
-            "@value": "Ghent",
-            "@language": "en"
-          }
-        },
-        "member": "https://pietercolpaert.be/teaching/kg/#2023-2024",
-        "knows": [
-          "https://wodsaegh.github.io/",
-          "https://jitsedesmet.be/profile/#me"
-        ]
-      }
+    <script type="text/turtle">
+      @base <https://nielspraet.github.io/kg-profile/> .
+      @prefix schema: <https://schema.org/> .
+      @prefix foaf: <http://xmlns.com/foaf/0.1/> .
+      @prefix po: <https://nielspraet.github.io/kg-photontology/#> .
+
+      <#me> a po:Person ;
+            foaf:name "Niels Praet" ;
+            foaf:gender "male"@en ;
+            foaf:birthday "12-04" ;
+            schema:email "niels.praet@ugent.be" ;
+            schema:knowsLanguage "Dutch"@en, "English"@en, "French"@en ;
+            schema:affiliation [
+              schema:legalName "Ghent University"@en ;
+              schema:location "Ghent"@en
+            ] ;
+            foaf:member <https://pietercolpaert.be/teaching/kg/#2023-2024> ;
+            foaf:knows <https://wodsaegh.github.io/>,
+            <https://jitsedesmet.be/profile/#me>.
+
+      <https://tinyurl.com/kg-image-window> a po:Photo;
+            po:title "Picture from within my dorm room";
+            po:author <#me>;
+            po:depicts "Window".
+
+      <https://tinyurl.com/christmas-teamup> a po:Photo;
+            po:title "Picture of someone sitting on Santa's lap, while Jesus is in the background";
+            po:author <#me>.
     </script>
   </body>
 </html>
